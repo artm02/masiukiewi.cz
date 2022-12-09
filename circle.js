@@ -1,20 +1,9 @@
-// Get a reference to the element that will contain the circle
-const container = document.querySelector("#container");
+// get a reference to the circle element
+const circle = document.getElementById("circle");
 
-// Create a new element to hold the circle
-const circle = document.createElement("div");
-circle.classList.add("circle");
-
-// Add the circle to the container
-container.appendChild(circle);
-
-// Listen for mouse movement on the container
-container.addEventListener("mousemove", (event) => {
-    // Get the current mouse position
-    const x = event.clientX;
-    const y = event.clientY;
-
-    // Update the circle's position
-    circle.style.left = x + "px";
-    circle.style.top = y + "px";
+// add an event listener to track the cursor's movement
+document.addEventListener("mousemove", event => {
+  // update the circle's position to match the cursor's position
+  circle.style.top = `${event.pageY - 25}px`;
+  circle.style.left = `${event.pageX - 25}px`;
 });
